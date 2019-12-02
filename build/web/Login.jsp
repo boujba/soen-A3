@@ -134,7 +134,7 @@ input[type="submit"]:active {
     <body>
         <div class="login">
            
-        <form action="Home.jsp" method="POST">
+        <form action="LoginServlet" method="POST">
             
             <input type="text" placeholder="Username" id="username">
             <input type="password" placeholder="password" id="password">

@@ -73,7 +73,7 @@ public class LoginServlet extends HttpServlet {
             //Does not exist must be created
             Session theSession = new Session();
             session.setAttribute("theSession", theSession);
-            RequestDispatcher disp = request.getRequestDispatcher("/login.jsp");
+            RequestDispatcher disp = request.getRequestDispatcher("/Login.jsp");
             disp.forward(request, response);
         }
         else 
@@ -82,6 +82,8 @@ public class LoginServlet extends HttpServlet {
             {
                 String name = request.getParameter("name");
                 String password = request.getParameter("password");
+                System.out.println(name);
+                System.out.println(password);
 
                 // Session
                 Session currentSession = (Session)session.getAttribute("theSession"); 
@@ -98,7 +100,7 @@ public class LoginServlet extends HttpServlet {
 
                     // Not Logged In
                     if(login.equals("SUCCESS")){
-                        response.sendRedirect("read");
+                        response.sendRedirect("/Home.jsp");
                     }
                     else{
                         RequestDispatcher disp = request.getRequestDispatcher("/Logout.jsp");
@@ -113,7 +115,7 @@ public class LoginServlet extends HttpServlet {
 
                 if(currentSession.isUserLoggedIn() == true)
                 {
-                   response.sendRedirect("read");
+                   response.sendRedirect("/Home.jsp");
                 }
                 else
                 {

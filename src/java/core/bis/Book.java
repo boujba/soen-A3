@@ -133,4 +133,8 @@ public class Book {
         System.out.println("Book: ID = " + this.id + " ISBN = " + this.isbn + " Title = " + this.title + " Description = " + this.description + " Author = " + this.author.toString() + " Cover = " + this.cover.toString());
 
     }
+
+    public int getCoverImageData() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

@@ -59,22 +59,7 @@ li a:hover {
             &nbsp;&nbsp;&nbsp;
     <a href="List_all_books">List All Books</a></h3>
     <body>   
-        <table border="1">
-    <!-- column headers -->
-    <tr>
-        <c:forEach var="columnName" items="${result.columnNames}">
-            <th><c:out value="${columnName}"/></th>
-            </c:forEach>
-    </tr>
-    <!-- column data -->
-    <c:forEach var="row" items="${result.rowsByIndex}">
-        <tr>
-            <c:forEach var="column" items="${row}">
-                <td><c:out value="${column}"/></td>
-            </c:forEach>
-        </tr>
-    </c:forEach>
-</table><
+       
   <div align="center">
         <table border="1" cellpadding="5">
             <caption><h2>List of Books</h2></caption>

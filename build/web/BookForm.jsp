@@ -74,14 +74,14 @@ li a:hover {
        </ul>
         <h1>Add a book here</h1>
         
-        <form action="add_1_book" method="post" enctype="multipart/form-data">
+        <form action="Add_1_book" method="post" >
             Isbn <input type="text" name="isbn"><br> 
             Title <input type="text" name="title"><br>
             Description <input type="text" name="description"><br>
-            Author First Name <input type="text" name="fname"><br>
-            Author Last Name <input type="text" name="lname"><br>
-            Publisher Name <input type="text" name="pubname"><br>
-            Publisher Address <input type="text" name="pubaddress"><br>
+            Author First Name <input type="text" name="author_first_name"><br>
+            Author Last Name <input type="text" name="author_last_name"><br>
+            Publisher Name <input type="text" name="publisherCompany"><br>
+            Publisher Address <input type="text" name="publisherAddress"><br>
             Cover Image <input type="file" name="image"><br>
             <input type="submit" value="Add Book"/>
         </form>

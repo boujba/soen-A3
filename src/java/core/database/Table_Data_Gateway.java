@@ -152,16 +152,18 @@ public class Table_Data_Gateway {
     }
     
     public int InsertNewBook(Book Book) {
-                try (PreparedStatement stmt = conn.prepareStatement("INSERT INTO book (id, title, descriptions, isbn, author_first_name, author_last_name, publisher_company, publisher_address) Values(?, ?, ?, ?, ?, ?, ?, ?)")) {
-                stmt.setInt(1, Book.getId());
-                stmt.setString(2, Book.getTitle());
-                stmt.setString(3, Book.getDescription());
-                stmt.setString(4, Book.getIsbn());
-                stmt.setString(5, Book.getAuthorname());
-                stmt.setString(6, Book.getAuthorlastname());
-                stmt.setString(7, Book.getPubName());
-                stmt.setString(8, Book.getPubAddress());
-                stmt.executeUpdate();
+                try (PreparedStatement stmt = conn.prepareStatement("INSERT INTO book (id, title, descrption, isbn, authorname, authorlastname, publishername, publisheraddr,cover) Values(?, ?, ?, ?, ?, ?, ?, ?, ?)")) {
+                
+                 stmt.setInt(1, Book.getId());
+                 stmt.setString(2, Book.getTitle());
+                 stmt.setString(3, Book.getDescription());
+                 stmt.setString(4, Book.getIsbn());
+                 stmt.setString(5, Book.getAuthorname());
+                 stmt.setString(6, Book.getAuthorlastname());
+                 stmt.setString(7, Book.getPubName());
+                 stmt.setString(8, Book.getPubAddress());
+                 stmt.setString(9, "http://lorempixel.com/640/480/");
+                 stmt.executeUpdate();
                 return Book.getId();
             } catch (SQLException e) {
                 return -1;

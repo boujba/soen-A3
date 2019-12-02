@@ -12,16 +12,16 @@ import java.util.List;
 
 
 public interface IBookRepository {       
-   
+   public List<Book> listBooks();
     List<Book> listBooks(Session id);
     
     Book infoById(Session mySession, int id);
    Book infoByIsbn(Session mySession, String isbn);
     
-    int addBook(Session mySession, Book myBook);
+    int addBook(Book Book);
     boolean updateBook(Session id, int bookID, Book updateInfo);
    boolean setImage(Session mySession, int myId, String mimeType, InputStream inputStream);
-    boolean deleteBook(Session id, int bookid);
+    boolean deleteBook( int bookid);
    boolean deleteAll(Session id);
     
 }

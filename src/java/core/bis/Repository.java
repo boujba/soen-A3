@@ -18,8 +18,9 @@ public class  Repository implements IBookRepository {
 
     public static synchronized  Repository getInstance(ServletContext context) throws SQLException, ClassNotFoundException {
         if (context == null) {
-            return null;
-        } else if (repo == null) {
+         return null;
+        } else
+            if (repo == null) {
             
             repo = new  Repository();
         }
@@ -53,6 +54,10 @@ public class  Repository implements IBookRepository {
             return null;
         }
     }
+     @Override
+    public List<Book> listBooks() {
+   return gateway.ListOfBooks();
+    }
     @Override
     public Book infoById(Session mySession, int id) {
         if (mySession.isUserLoggedIn()) {
@@ -82,18 +87,10 @@ public class  Repository implements IBookRepository {
     }
 
      @Override
-    public int addBook(Session mySession, Book myBook) {
-        if (mySession.isUserLoggedIn()) {
+    public int addBook( Book myBook) {
+        
              return gateway.InsertNewBook(myBook);
-        }
-            else {
-            try {
-                throw new RepositoryException();
-            } catch (RepositoryException ex) {
-                Logger.getLogger( Repository.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            return -1;
-        }
+       
     }
         
 
@@ -126,17 +123,10 @@ public class  Repository implements IBookRepository {
     }
 
       @Override
-    public boolean deleteBook(Session mySession, int id) {
-        if (mySession.isUserLoggedIn()) {
+    public boolean deleteBook( int id) {
+        
            return gateway.deleteBook(id);
-        } else {
-            try {
-                throw new RepositoryException();
-            } catch (RepositoryException ex) {
-                Logger.getLogger( Repository.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            return false;
-        }
+       
     }
 
      
