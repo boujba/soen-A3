@@ -1,0 +1,20 @@
+{
+    "elements": {
+        "sql:setDataSource": {
+            "attributes": {
+                "password": {},
+                "driver": {},
+                "var": {},
+                "user": {},
+                "url": {}
+            }
+        },
+        "sql:query": {
+            "attributes": {
+                "var": {},
+                "dataSource": {}
+            }
+        }
+    },
+    "attributes": {}
+}
