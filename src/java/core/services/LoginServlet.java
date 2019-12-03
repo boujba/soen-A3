@@ -97,7 +97,7 @@ public class LoginServlet extends HttpServlet {
                 else
                 {
                     String login = currentSession.login(name, password);
-
+                    
                     // Not Logged In
                     if(login.equals("SUCCESS")){
                         response.sendRedirect("/Home.jsp");

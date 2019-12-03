@@ -15,7 +15,7 @@ public interface IBookRepository {
    public List<Book> listBooks();
     List<Book> listBooks(Session id);
     
-    Book infoById(Session mySession, int id);
+    Book infoById( int id);
    Book infoByIsbn(Session mySession, String isbn);
     
     int addBook(Book Book);

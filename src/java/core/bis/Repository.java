@@ -59,18 +59,13 @@ public class  Repository implements IBookRepository {
    return gateway.ListOfBooks();
     }
     @Override
-    public Book infoById(Session mySession, int id) {
-        if (mySession.isUserLoggedIn()) {
+    public Book infoById( int id) {
+        
           return gateway.getInfoById(id);
-        } else {
-            try {
-                throw new RepositoryException();
-            } catch (RepositoryException ex) {
-                Logger.getLogger( Repository.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            return null;
+        
         }
-    }
+    
+        
 
        @Override
     public Book infoByIsbn(Session mySession, String isbn) {
@@ -145,3 +140,5 @@ public class  Repository implements IBookRepository {
     }
 
 }
+
+ 

@@ -91,15 +91,15 @@ public class Table_Data_Gateway {
                         Book.setAuthor(myAuthor);
                         Book.setPubName(rs.getString("publisher_company"));
                         Book.setPubAddress(rs.getString("publisher_address"));
-                        String mimeType = rs.getString("mimeType");
+                        //String mimeType = rs.getString("mimeType");
                         Blob picture = rs.getBlob("cover");
 
                         if (picture == null) {
                             Book.setCover(null);
                         } else {
-                            byte[] pictureData = picture.getBytes(1, (int) picture.length());
-                            CoverImage myCover = new CoverImage(mimeType, pictureData);
-                            Book.setCover(myCover);
+                           // byte[] pictureData = picture.getBytes(1, (int) picture.length());
+                           // CoverImage myCover = new CoverImage(mimeType, pictureData);
+                           // Book.setCover(myCover);
                         }
                     }
                     return Book;
