@@ -38,7 +38,7 @@ public class Book {
         
     }
     
-    public Book(int id, String isbn, String title, String description, Author author, String pubName, String pubAddress, CoverImage cover) {
+    public Book(int id, String title, String description, String isbn, Author author, String pubName, String pubAddress, CoverImage cover) {
         
         this.id = id;        
         this.isbn = isbn;

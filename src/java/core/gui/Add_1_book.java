@@ -30,6 +30,8 @@ import javax.swing.JOptionPane;
 @MultipartConfig(maxFileSize = 16177215)
 @WebServlet(name = "Add_1_book", urlPatterns = {"/Add_1_book"})
 public class Add_1_book extends HttpServlet {
+    private Object math;
+    private Object util;
 
     private int generateId(HttpServletRequest request) {
         try {
@@ -68,8 +70,9 @@ public class Add_1_book extends HttpServlet {
             //Part image = request.getPart("image");
            // String fileName = Paths.get(image.getSubmittedFileName()).getFileName().toString();
             CoverImage myCoverImage = new CoverImage();
-            
-            Book book = new Book(2, title, description, isbn, myAuthor, publisherCompany, publisherAddress,myCoverImage);
+            int id;
+        id = generateId();
+            Book book = new Book(id, title, description, isbn, myAuthor, publisherCompany, publisherAddress,myCoverImage);
             //Repository.getInstance(getServletContext()).setImage((BLOB)image);
             Repository.getInstance(getServletContext()).addBook(book);
             
@@ -109,5 +112,10 @@ public class Add_1_book extends HttpServlet {
     @Override
     public String getServletInfo() {
         return "Short description";
+    }
+int count=0;
+    private int generateId() {
+      count++;
+      return count;
     }
 }

@@ -44,7 +44,7 @@ li a:hover {
     
     
     <body>
-        <%= (Book) request.getAttribute("book") %>
+        <% Book book = (Book) request.getAttribute("book") ;%>
          <ul>
              <li><a href="Home.jsp">Home</a></li>
              <li><a href="Delbook.jsp">Book cathalog</a></li>
@@ -55,13 +55,24 @@ li a:hover {
        </ul>
         <h1>Details</h1>
         
-        <table>
-           
+      
+           <c:if test="${book != null}">
+            <form action="Update_1_book" method="post" enctype="multipart/form-data">
+            </c:if>
+                  <table>
+                      <tr>
+                        <th>id: </th>
+                        <td>
+                            <input type="text" name="id" size="45"
+                                   value="<c:out value='${book.id}' />"
+                                   />
+                        </td>
+                    </tr>
              <tr>
                         <th>Title: </th>
                         <td>
                             <input type="text" name="title" size="45"
-                                   value="<c:out value='${request.getAttribute("book").title}' />"
+                                   value="<c:out value='${book.title}' />"
                                    />
                         </td>
                     </tr>
@@ -69,7 +80,7 @@ li a:hover {
                         <th>Description: </th>
                         <td>
                             <input type="text" name="description" size="45"
-                                   value="<c:out value='${request.getAttribute("book").description}' />"
+                                   value="<c:out value='${book.description}' />"
                                    />
                         </td>
                     </tr>
@@ -77,7 +88,7 @@ li a:hover {
                         <th>Isbn: </th>
                         <td>
                             <input type="text" name="isbn" size="45"
-                                   value="<c:out value='${request.getAttribute("book").isbn}' />"
+                                   value="<c:out value='${book.isbn}' />"
                                    />
                         </td>
                     </tr>
@@ -85,7 +96,7 @@ li a:hover {
                         <th>Author (first name): </th>
                         <td>
                             <input type="text" name="author_first_name" size="45"
-                                   value="<c:out value='${request.getAttribute("book").authorlastname}' />"
+                                   value="<c:out value='${book.authorlastname}' />"
                                    />
                         </td>
                     </tr>
@@ -93,7 +104,7 @@ li a:hover {
                         <th>Author (last name): </th>
                         <td>
                             <input type="text" name="author_last_name" size="45"
-                                   value="<c:out value='${request.getAttribute("book").authorname}' />"
+                                   value="<c:out value='${book.authorname}' />"
                                    />
                         </td>
                     </tr>
@@ -101,7 +112,7 @@ li a:hover {
                         <th>Publisher Company: </th>
                         <td>
                             <input type="text" name="publisherCompany" size="45"
-                                   value="<c:out value='${request.getAttribute("book").publisherCompany}' />"
+                                   value="<c:out value='${book.pubName}' />"
                                    />
                         </td>
                     </tr>
@@ -109,12 +120,17 @@ li a:hover {
                         <th>Publisher Address: </th>
                         <td>
                             <input type="text" name="publisherAddress" size="45"
-                                   value="<c:out value='${request.getAttribute("book").publisherAddress}' />"
+                                   value="<c:out value='${book.pubAddress}' />"
                                    />
                         </td>
                     </tr>
             
-            
-        </table>
+            <tr>
+                        <td colspan="2" align="center">
+                            <input type="submit" value="Save" />
+                        </td>
+                    </tr>
+                </table>
+            </form>
     </body>
 </html>

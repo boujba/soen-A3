@@ -174,15 +174,17 @@ public class Table_Data_Gateway {
     
      public boolean updateBook(int id, Book Book){
 
-            try (PreparedStatement stmt = conn.prepareStatement("UPDATE book SET title=?, descriptions=?, isbn=?, author_first_name=?, author_last_name=?, publisher_company=?, publisher_address=? WHERE id=?")) {
-                 stmt.setInt(1, Book.getId());
-                stmt.setString(2, Book.getTitle());
-                stmt.setString(3, Book.getDescription());
-                stmt.setString(4, Book.getIsbn());
-                stmt.setString(5, Book.getAuthorname());
-                stmt.setString(6, Book.getAuthorlastname());
-                stmt.setString(7, Book.getPubName());
-                stmt.setString(8, Book.getPubAddress());
+            try (PreparedStatement stmt = conn.prepareStatement("UPDATE book SET  title=? , descrption=? , isbn=? , authorname=? , authorlastname=? , publishername=? , publisheraddr=? ,cover=? WHERE id=?")) {
+                
+                stmt.setString(1, Book.getTitle());
+                stmt.setString(2, Book.getDescription());
+                stmt.setString(3, Book.getIsbn());
+                stmt.setString(4, Book.getAuthorname());
+                stmt.setString(5, Book.getAuthorlastname());
+                stmt.setString(6, Book.getPubName());
+                stmt.setString(7, Book.getPubAddress());
+                stmt.setString(8, "http://lorempixel.com/640/480/");
+                stmt.setInt(9, Book.getId());
                 stmt.executeUpdate();
                 return true;
             } catch (SQLException e) {

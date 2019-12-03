@@ -90,17 +90,10 @@ public class  Repository implements IBookRepository {
         
 
      @Override
-    public boolean updateBook(Session mySession, int id, Book myBook) {
-        if (mySession.isUserLoggedIn()) {
+    public boolean updateBook(int id, Book myBook) {
+        
      return gateway.updateBook(id, myBook);
-        } else {
-            try {
-                throw new RepositoryException();
-            } catch (RepositoryException ex) {
-                Logger.getLogger( Repository.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            return false;
-        }
+        
     }
 
      @Override

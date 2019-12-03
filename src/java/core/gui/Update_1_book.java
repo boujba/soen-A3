@@ -14,26 +14,21 @@ import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
 @MultipartConfig(maxFileSize = 16177215)
+@WebServlet(name = "Update_1_book", urlPatterns = {"/Update_1_book"})
 public class Update_1_book extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, SQLException, ClassNotFoundException {
         
-         if (request.getSession().getAttribute("someUser") == null){
-                RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
-                dispatcher.forward(request, response);
-           }
-            
-        
-        
-        try {
-            int id = Integer.parseInt(request.getParameter("id"));
+       
+           int id = Integer.parseInt(request.getParameter("id"));
             String title = request.getParameter("title");
             String description = request.getParameter("description");
             String isbn = request.getParameter("isbn");
@@ -45,21 +40,9 @@ public class Update_1_book extends HttpServlet {
             
             CoverImage myCoverImage = new CoverImage();
             Book book = new Book(id, title, description, isbn, myAuthor, publisherCompany, publisherAddress, myCoverImage);
-            Repository.getInstance(getServletContext()).updateBook((Session) request.getSession().getAttribute("someUser"), id, book);
+            Repository.getInstance(getServletContext()).updateBook( id, book);
 
-            Part cover = request.getPart("cover");
-            String mimeType = cover.getContentType();
-
-            InputStream input = cover.getInputStream();
-
-            if (mimeType.contains("image/")) {
-                 Repository.getInstance(getServletContext()).setImage((Session) request.getSession().getAttribute("someUser"), id, mimeType, input);
-            }
-
-            response.sendRedirect("List_all_books");
-        } catch (SQLException | ClassNotFoundException ex) {
-            Logger.getLogger(Delete_1_book.class.getName()).log(Level.SEVERE, null, ex);
-        }
+           response.sendRedirect("Delbook.jsp");
         
    
         
@@ -73,13 +56,25 @@ public class Update_1_book extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (SQLException ex) {
+            Logger.getLogger(Update_1_book.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Update_1_book.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (SQLException ex) {
+            Logger.getLogger(Update_1_book.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Update_1_book.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @Override

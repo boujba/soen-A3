@@ -19,7 +19,7 @@ public interface IBookRepository {
    Book infoByIsbn(Session mySession, String isbn);
     
     int addBook(Book Book);
-    boolean updateBook(Session id, int bookID, Book updateInfo);
+    boolean updateBook( int bookID, Book updateInfo);
    boolean setImage(Session mySession, int myId, String mimeType, InputStream inputStream);
     boolean deleteBook( int bookid);
    boolean deleteAll(Session id);
