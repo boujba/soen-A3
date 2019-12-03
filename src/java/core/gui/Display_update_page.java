@@ -26,35 +26,45 @@ import javax.servlet.http.HttpServletResponse;
 public class Display_update_page extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, SQLException, ClassNotFoundException {
         // if (request.getSession().getAttribute("someUser") == null){
-         //       RequestDispatcher dispatcher = request.getRequestDispatcher("login_page.jsp");
+         //       RequestDispatcher dispatcher = request.getRequestDispatcher("Login.jsp");
          //       dispatcher.forward(request, response);
         //   }
             
         
-        try {
+        
             int id = Integer.parseInt(request.getParameter("id"));
             Book book = Repository.getInstance(getServletContext()).infoById(id);
-            
-            request.setAttribute("book", book);
             RequestDispatcher dispatcher = request.getRequestDispatcher("ViewBookDetail.jsp");
+            request.setAttribute("book", book);
+            
             dispatcher.forward(request, response);
-        } catch (SQLException | ClassNotFoundException ex) {
-            //Logger.getLogger(Display_update_page.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        
     }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (SQLException ex) {
+            Logger.getLogger(Display_update_page.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Display_update_page.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (SQLException ex) {
+            Logger.getLogger(Display_update_page.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Display_update_page.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @Override

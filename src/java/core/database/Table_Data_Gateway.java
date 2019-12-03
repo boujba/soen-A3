@@ -83,14 +83,14 @@ public class Table_Data_Gateway {
                     while (rs.next()) {
                         Book.setId(parseInt(rs.getString("id")));
                         Book.setTitle(rs.getString("title"));
-                        Book.setDescription(rs.getString("descriptions"));
+                        Book.setDescription(rs.getString("descrption"));
                         Book.setIsbn(rs.getString("isbn"));
-                        String author_first_name = rs.getString("author");
-                        String author_last_name = rs.getString("author_last_name");
+                        String author_first_name = rs.getString("authorname");
+                        String author_last_name = rs.getString("authorlastname");
                         Author myAuthor = new Author(author_first_name, author_last_name);
                         Book.setAuthor(myAuthor);
-                        Book.setPubName(rs.getString("publisher_company"));
-                        Book.setPubAddress(rs.getString("publisher_address"));
+                        Book.setPubName(rs.getString("publishername"));
+                        Book.setPubAddress(rs.getString("publisheraddr"));
                         //String mimeType = rs.getString("mimeType");
                         Blob picture = rs.getBlob("cover");
 

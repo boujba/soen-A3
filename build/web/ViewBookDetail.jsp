@@ -1,4 +1,5 @@
 
+
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page import="  core.bis.Book "%>
 <%@page import="java.io.OutputStream"%>
@@ -43,7 +44,7 @@ li a:hover {
     
     
     <body>
-        <%! Book book = (Book) request.getAttribute("book"); %>
+        <%= (Book) request.getAttribute("book") %>
          <ul>
              <li><a href="Home.jsp">Home</a></li>
              <li><a href="Delbook.jsp">Book cathalog</a></li>
@@ -60,7 +61,7 @@ li a:hover {
                         <th>Title: </th>
                         <td>
                             <input type="text" name="title" size="45"
-                                   value="<c:out value='${book.title}' />"
+                                   value="<c:out value='${request.getAttribute("book").title}' />"
                                    />
                         </td>
                     </tr>
@@ -68,7 +69,7 @@ li a:hover {
                         <th>Description: </th>
                         <td>
                             <input type="text" name="description" size="45"
-                                   value="<c:out value='${book.description}' />"
+                                   value="<c:out value='${request.getAttribute("book").description}' />"
                                    />
                         </td>
                     </tr>
@@ -76,7 +77,7 @@ li a:hover {
                         <th>Isbn: </th>
                         <td>
                             <input type="text" name="isbn" size="45"
-                                   value="<c:out value='${book.isbn}' />"
+                                   value="<c:out value='${request.getAttribute("book").isbn}' />"
                                    />
                         </td>
                     </tr>
@@ -84,7 +85,7 @@ li a:hover {
                         <th>Author (first name): </th>
                         <td>
                             <input type="text" name="author_first_name" size="45"
-                                   value="<c:out value='${book.authorlastname}' />"
+                                   value="<c:out value='${request.getAttribute("book").authorlastname}' />"
                                    />
                         </td>
                     </tr>
@@ -92,7 +93,7 @@ li a:hover {
                         <th>Author (last name): </th>
                         <td>
                             <input type="text" name="author_last_name" size="45"
-                                   value="<c:out value='${book.authorname}' />"
+                                   value="<c:out value='${request.getAttribute("book").authorname}' />"
                                    />
                         </td>
                     </tr>
@@ -100,7 +101,7 @@ li a:hover {
                         <th>Publisher Company: </th>
                         <td>
                             <input type="text" name="publisherCompany" size="45"
-                                   value="<c:out value='${book.publisherCompany}' />"
+                                   value="<c:out value='${request.getAttribute("book").publisherCompany}' />"
                                    />
                         </td>
                     </tr>
@@ -108,7 +109,7 @@ li a:hover {
                         <th>Publisher Address: </th>
                         <td>
                             <input type="text" name="publisherAddress" size="45"
-                                   value="<c:out value='${book.publisherAddress}' />"
+                                   value="<c:out value='${request.getAttribute("book").publisherAddress}' />"
                                    />
                         </td>
                     </tr>

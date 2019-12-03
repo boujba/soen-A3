@@ -100,7 +100,7 @@ li a:hover {
                     <td><c:out value="${row.authorname}${' '}${row.authorlastname}" /></td>
                     <td><c:out value="${row.publishername}" /></td>
                     <td><c:out value="${row.publisheraddr}" /></td>
-                    <td><img src= "<c:out value='${book.id}' />" ></td>
+                    <td><img src= "<c:out value='${row.id}' />" ></td>
                     <td>
                         <a href="Display_update_page?id=<c:out value='${row.id}' />">Edit</a>
                         &nbsp;&nbsp;&nbsp;&nbsp;
