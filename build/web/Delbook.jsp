@@ -102,6 +102,8 @@ li a:hover {
                     <td><c:out value="${row.publisheraddr}" /></td>
                     <td><img src= "<c:out value='${row.id}' />" ></td>
                     <td>
+                        <a href="Display_view_page?id=<c:out value='${row.id}' />">Details</a>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
                         <a href="Display_update_page?id=<c:out value='${row.id}' />">Edit</a>
                         &nbsp;&nbsp;&nbsp;&nbsp;
                         <a href="Delete_1_book?id=<c:out value='${row.id}' />" onclick="return confirm(' you want to delete this book?');">Delete</a>                     

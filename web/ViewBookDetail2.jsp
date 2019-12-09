@@ -79,81 +79,80 @@ li a:hover {
              <li><a href="Logout.jsp">logout</a></li>
         
        </ul>
-        <h1>Update the book:</h1>
+        <h1>Details of the book:</h1>
         
       
            <c:if test="${book != null}">
-            <form action="Update_1_book" method="post" enctype="multipart/form-data">
+            <form action="Delbook.jsp" method="post" enctype="multipart/form-data">
             </c:if>
                   <table>
                       <tr>
                         <th>id: </th>
                         <td>
-                            <input type="text" name="id" size="45"
-                                   value="<c:out value='${book.id}' />"
-                                   />
+                           <c:out value='${book.id}' />
+                                   
                         </td>
                     </tr>
              <tr>
                         <th>Title: </th>
                         <td>
-                            <input type="text" name="title" size="45"
-                                   value="<c:out value='${book.title}' />"
-                                   />
+                            <c:out value='${book.title}' />
+                                   
                         </td>
                     </tr>
                     <tr>
                         <th>Description: </th>
                         <td>
-                            <input type="text" name="description" size="45"
-                                   value="<c:out value='${book.description}' />"
-                                   />
+                            <c:out value='${book.description}' />
+                                  
                         </td>
                     </tr>
                     <tr>
                         <th>Isbn: </th>
                         <td>
-                            <input type="text" name="isbn" size="45"
-                                   value="<c:out value='${book.isbn}' />"
-                                   />
+                            <c:out value='${book.isbn}' />
+                                   
                         </td>
                     </tr>
                     <tr>
                         <th>Author (first name): </th>
                         <td>
-                            <input type="text" name="author_first_name" size="45"
-                                   value="<c:out value='${book.authorlastname}' />"
-                                   />
+                            <c:out value='${book.authorlastname}' />
+                                   
                         </td>
                     </tr>
                     <tr>
                         <th>Author (last name): </th>
                         <td>
-                            <input type="text" name="author_last_name" size="45"
-                                   value="<c:out value='${book.authorname}' />"
-                                   />
+                            <c:out value='${book.authorname}' />
+                                   
                         </td>
                     </tr>
                     <tr>
                         <th>Publisher Company: </th>
                         <td>
-                            <input type="text" name="publisherCompany" size="45"
-                                   value="<c:out value='${book.pubName}' />"
-                                   />
+                          <c:out value='${book.pubName}' />
+                                   
                         </td>
                     </tr>
                     <tr>
                         <th>Publisher Address: </th>
                         <td>
-                            <input type="text" name="publisherAddress" size="45"
-                                   value="<c:out value='${book.pubAddress}' />"
-                                   />
+                            <c:out value='${book.pubAddress}' />
+                                   
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>cover </th>
+                        <td>
+                            <img src="<c:out value='${book.cover}' />" width="300" height="200">
+                                   
                         </td>
                     </tr>
             
             <tr>
                         <td colspan="2" align="center">
-                            <input type="submit" value="Save" />
+                            <input type="submit" value="Back to cathalog" />
                         </td>
                     </tr>
                 </table>
